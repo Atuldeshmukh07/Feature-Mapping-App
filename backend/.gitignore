@@ -1,0 +1,12 @@
+# Ignore Spring Boot config
+/src/main/resources/application.properties
+/src/main/resources/application.yml
+/application.properties
+/application.yml
+
+# Java / Maven
+target/
+*.class
+*.jar
+*.war
+*.ear
