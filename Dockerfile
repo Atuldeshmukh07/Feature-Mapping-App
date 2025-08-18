@@ -13,7 +13,7 @@ FROM eclipse-temurin:17-jdk
 WORKDIR /app
 
 # Copy built JAR from builder stage
-COPY --from=builder /app/backend/target/demo-0.0.1-SNAPSHOT.jar app.jar
+COPY --from=builder /app/backend/target/backend-0.0.1-SNAPSHOT.jar app.jar
 
 # Expose port (Render sets $PORT automatically)
 EXPOSE 8080
