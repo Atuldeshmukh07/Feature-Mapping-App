@@ -17,9 +17,9 @@ function Mapping() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const featuresRes = await fetch("https://feature-mapping-app-2.onrender.com//api/features");
-        const marketsRes = await fetch("https://feature-mapping-app-2.onrender.com//api/markets");
-        const vehiclesRes = await fetch("https://feature-mapping-app-2.onrender.com//api/vehicle-models"); // correct URL
+        const featuresRes = await fetch("https://feature-mapping-app-2.onrender.com/api/features");
+        const marketsRes = await fetch("https://feature-mapping-app-2.onrender.com/api/markets");
+        const vehiclesRes = await fetch("https://feature-mapping-app-2.onrender.com/api/vehicle-models"); // correct URL
 
         if (!featuresRes.ok || !marketsRes.ok || !vehiclesRes.ok) {
           throw new Error("Failed to fetch one or more dropdowns");
@@ -91,7 +91,7 @@ function Mapping() {
     }
 
     try {
-      const res = await fetch("https://feature-mapping-app-2.onrender.com//api/mappings", {
+      const res = await fetch("https://feature-mapping-app-2.onrender.com/api/mappings", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
