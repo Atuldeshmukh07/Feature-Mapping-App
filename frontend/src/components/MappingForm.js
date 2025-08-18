@@ -17,9 +17,9 @@ function Mapping() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const featuresRes = await fetch("http://localhost:8080/api/features");
-        const marketsRes = await fetch("http://localhost:8080/api/markets");
-        const vehiclesRes = await fetch("http://localhost:8080/api/vehicle-models"); // correct URL
+        const featuresRes = await fetch("https://feature-mapping-app-2.onrender.com/api/features");
+        const marketsRes = await fetch("https://feature-mapping-app-2.onrender.com/api/markets");
+        const vehiclesRes = await fetch("https://feature-mapping-app-2.onrender.com/api/vehicle-models"); // correct URL
 
         if (!featuresRes.ok || !marketsRes.ok || !vehiclesRes.ok) {
           throw new Error("Failed to fetch one or more dropdowns");
@@ -47,9 +47,9 @@ function Mapping() {
   //   async function fetchData() {
   //     try {
   //       const [featuresRes, vehiclesRes, marketsRes] = await Promise.all([
-  //         fetch("http://localhost:8080/api/features"),
-  //         fetch("http://localhost:8080/api/vehicle-models"),
-  //         fetch("http://localhost:8080/api/markets"),
+  //         fetch("https://feature-mapping-app-2.onrender.com/api/features"),
+  //         fetch("https://feature-mapping-app-2.onrender.com/api/vehicle-models"),
+  //         fetch("https://feature-mapping-app-2.onrender.com/api/markets"),
   //       ]);
 
   //       if (!featuresRes.ok || !vehiclesRes.ok || !marketsRes.ok) {
@@ -91,7 +91,7 @@ function Mapping() {
     }
 
     try {
-      const res = await fetch("http://localhost:8080/api/mappings", {
+      const res = await fetch("https://feature-mapping-app-2.onrender.com/api/mappings", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

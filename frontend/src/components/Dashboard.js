@@ -19,7 +19,7 @@ const Dashboard = () => {
   }, []);
 
   const fetchData = () => {
-    axios.get("http://localhost:8080/api/mappings").then((response) => {
+    axios.get("https://feature-mapping-app-2.onrender.com/api/mappings").then((response) => {
       setData(response.data);
     });
   };
@@ -28,7 +28,7 @@ const Dashboard = () => {
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this mapping?")) {
       try {
-        await axios.delete(`http://localhost:8080/api/mappings/${id}`);
+        await axios.delete(`https://feature-mapping-app-2.onrender.com/api/mappings/${id}`);
         setData(data.filter((mapping) => mapping.id !== id));
       } catch (error) {
         console.error("Error deleting mapping:", error);
@@ -46,7 +46,7 @@ const Dashboard = () => {
   // Save edited mapping
   const handleSave = async (id) => {
     try {
-      await axios.put(`http://localhost:8080/api/mappings/${id}`, editForm);
+      await axios.put(`https://feature-mapping-app-2.onrender.com/api/mappings/${id}`, editForm);
       setData(
         data.map((m) => (m.id === id ? { ...m, ...editForm } : m))
       );
