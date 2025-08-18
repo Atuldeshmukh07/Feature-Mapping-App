@@ -9,7 +9,7 @@ export default function FeatureListPage() {
 
   // Fetch all features
   const fetchFeatures = () => {
-    fetch("http://localhost:8080//api/features")
+    fetch("https://feature-mapping-app-2.onrender.com/api/features")
       .then((res) => res.json())
       .then((data) => setFeatures(data))
       .catch((err) => console.error("Error fetching features:", err));
@@ -22,7 +22,7 @@ export default function FeatureListPage() {
   // Delete feature
   const handleDelete = (id) => {
     if (!window.confirm("Are you sure you want to delete this feature?")) return;
-    fetch(`http://localhost:8080//api/features/${id}`, { method: "DELETE" })
+    fetch(`https://feature-mapping-app-2.onrender.com/api/features/${id}`, { method: "DELETE" })
       .then((res) => {
         if (!res.ok) throw new Error("Failed to delete feature");
         fetchFeatures();

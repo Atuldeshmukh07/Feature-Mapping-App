@@ -11,13 +11,13 @@
 //   // Fetch all data from backend
 //   useEffect(() => {
 //     // Features
-//     fetch("http://localhost:8080//api/features")
+//     fetch("https://feature-mapping-app-2.onrender.com//api/features")
 //       .then(res => res.json())
 //       .then(data => setFeatures(data || []))
 //       .catch(err => console.error("Error fetching features:", err));
 
 //     // Vehicles
-//     fetch("http://localhost:8080//api/vehicle-models") // Corrected endpoint
+//     fetch("https://feature-mapping-app-2.onrender.com//api/vehicle-models") // Corrected endpoint
 //       .then(res => res.json())
 //       .then(data => setVehicles(data || []))
 //       .catch(err => console.error("Error fetching vehicles:", err));
@@ -26,7 +26,7 @@
 //   // Add Feature
 //   const addFeature = () => {
 //     if (!newFeature.name || !newFeature.category) return alert("Fill all fields");
-//     fetch("http://localhost:8080//api/features", {
+//     fetch("https://feature-mapping-app-2.onrender.com//api/features", {
 //       method: "POST",
 //       headers: { "Content-Type": "application/json" },
 //       body: JSON.stringify(newFeature),
@@ -52,7 +52,7 @@
 //   // Update Feature
 //   const updateFeature = () => {
 //     if (!editFeatureId) return;
-//     fetch(`http://localhost:8080//api/features/${editFeatureId}`, {
+//     fetch(`https://feature-mapping-app-2.onrender.com//api/features/${editFeatureId}`, {
 //       method: "PUT",
 //       headers: { "Content-Type": "application/json" },
 //       body: JSON.stringify(newFeature),
@@ -68,7 +68,7 @@
 
 //   // Delete Feature
 //   const deleteFeature = (id) => {
-//     fetch(`http://localhost:8080//api/features/${id}`, { method: "DELETE" })
+//     fetch(`https://feature-mapping-app-2.onrender.com//api/features/${id}`, { method: "DELETE" })
 //       .then(() => setFeatures(prev => prev.filter(f => f.id !== id)))
 //       .catch(err => console.error("Error deleting feature:", err));
 //   };
@@ -76,7 +76,7 @@
 //   // Add Vehicle
 //   const addVehicle = () => {
 //     if (!newVehicle.name || !newVehicle.modelYear) return alert("Fill all fields");
-//     fetch("http://localhost:8080//api/vehicle-models", { // Corrected endpoint
+//     fetch("https://feature-mapping-app-2.onrender.com//api/vehicle-models", { // Corrected endpoint
 //       method: "POST",
 //       headers: { "Content-Type": "application/json" },
 //       body: JSON.stringify(newVehicle),
@@ -91,7 +91,7 @@
 
 //   // Delete Vehicle
 //   const deleteVehicle = (id) => {
-//     fetch(`http://localhost:8080//api/vehicle-models/${id}`, { method: "DELETE" }) // Corrected endpoint
+//     fetch(`https://feature-mapping-app-2.onrender.com//api/vehicle-models/${id}`, { method: "DELETE" }) // Corrected endpoint
 //       .then(() => setVehicles(prev => prev.filter(v => v.id !== id)))
 //       .catch(err => console.error("Error deleting vehicle:", err));
 //   };
@@ -215,13 +215,13 @@ export default function MasterView() {
   // Fetch all data from backend
   useEffect(() => {
     // Features
-    fetch("http://localhost:8080/api/features")
+    fetch("https://feature-mapping-app-2.onrender.com/api/features")
       .then(res => res.json())
       .then(data => setFeatures(data || []))
       .catch(err => console.error("Error fetching features:", err));
 
     // Vehicles
-    fetch("http://localhost:8080/api/vehicle-models") // Corrected endpoint
+    fetch("https://feature-mapping-app-2.onrender.com/api/vehicle-models") // Corrected endpoint
       .then(res => res.json())
       .then(data => setVehicles(data || []))
       .catch(err => console.error("Error fetching vehicles:", err));
@@ -230,7 +230,7 @@ export default function MasterView() {
   // Add Feature
   const addFeature = () => {
     if (!newFeature.name || !newFeature.category) return alert("Fill all fields");
-    fetch("http://localhost:8080/api/features", {
+    fetch("https://feature-mapping-app-2.onrender.com/api/features", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newFeature),
@@ -256,7 +256,7 @@ export default function MasterView() {
   // Update Feature
   const updateFeature = () => {
     if (!editFeatureId) return;
-    fetch(`http://localhost:8080/api/features/${editFeatureId}`, {
+    fetch(`https://feature-mapping-app-2.onrender.com/api/features/${editFeatureId}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newFeature),
@@ -272,7 +272,7 @@ export default function MasterView() {
 
   // Delete Feature
   const deleteFeature = (id) => {
-    fetch(`http://localhost:8080/api/features/${id}`, { method: "DELETE" })
+    fetch(`https://feature-mapping-app-2.onrender.com/api/features/${id}`, { method: "DELETE" })
       .then(() => setFeatures(prev => prev.filter(f => f.id !== id)))
       .catch(err => console.error("Error deleting feature:", err));
   };
@@ -280,7 +280,7 @@ export default function MasterView() {
   // Add Vehicle
   const addVehicle = () => {
     if (!newVehicle.name || !newVehicle.modelYear) return alert("Fill all fields");
-    fetch("http://localhost:8080/api/vehicle-models", { // Corrected endpoint
+    fetch("https://feature-mapping-app-2.onrender.com/api/vehicle-models", { // Corrected endpoint
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newVehicle),
@@ -295,7 +295,7 @@ export default function MasterView() {
 
   // Delete Vehicle
   const deleteVehicle = (id) => {
-    fetch(`http://localhost:8080/api/vehicle-models/${id}`, { method: "DELETE" }) // Corrected endpoint
+    fetch(`https://feature-mapping-app-2.onrender.com/api/vehicle-models/${id}`, { method: "DELETE" }) // Corrected endpoint
       .then(() => setVehicles(prev => prev.filter(v => v.id !== id)))
       .catch(err => console.error("Error deleting vehicle:", err));
   };
