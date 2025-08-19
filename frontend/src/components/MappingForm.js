@@ -47,9 +47,9 @@ function Mapping() {
   //   async function fetchData() {
   //     try {
   //       const [featuresRes, vehiclesRes, marketsRes] = await Promise.all([
-  //         fetch("https://feature-mapping-app-2.onrender.com//api/features"),
-  //         fetch("https://feature-mapping-app-2.onrender.com//api/vehicle-models"),
-  //         fetch("https://feature-mapping-app-2.onrender.com//api/markets"),
+  //         fetch("https://feature-mapping-app-2.onrender.com/api/features"),
+  //         fetch("https://feature-mapping-app-2.onrender.com/api/vehicle-models"),
+  //         fetch("https://feature-mapping-app-2.onrender.com/api/markets"),
   //       ]);
 
   //       if (!featuresRes.ok || !vehiclesRes.ok || !marketsRes.ok) {
