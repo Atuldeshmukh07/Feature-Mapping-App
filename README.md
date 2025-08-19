@@ -71,7 +71,7 @@ Run Spring Boot App
 mvn spring-boot:run
 
 
-Backend will run at: http://localhost:8080/api/mappings
+Backend will run at: https://feature-mapping-app-2.onrender.com/api/mappings
 
 3. Frontend (React)
 Navigate to frontend folder
