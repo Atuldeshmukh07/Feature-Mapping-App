@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import "./Dashboard.css"
+import * as XLSX from "xlsx";
+import { saveAs } from "file-saver";
+import "./Dashboard.css";
 
 const STATUS_COLOR = {
-  "Applicable": { background: "#d4edda", color: "#155724" },
+  Applicable: { background: "#d4edda", color: "#155724" },
   "Not-Applicable": { background: "#f8d7da", color: "#721c24" },
   "Under-Review": { background: "#fff3cd", color: "#856404" },
 };
@@ -47,14 +49,26 @@ const Dashboard = () => {
   const handleSave = async (id) => {
     try {
       await axios.put(`https://feature-mapping-app-2.onrender.com/api/mappings/${id}`, editForm);
-      setData(
-        data.map((m) => (m.id === id ? { ...m, ...editForm } : m))
-      );
+      setData(data.map((m) => (m.id === id ? { ...m, ...editForm } : m)));
       setEditingId(null);
     } catch (error) {
       console.error("Error updating mapping:", error);
       alert("Failed to update mapping!");
     }
+  };
+
+  // Export to Excel
+  const exportToExcel = () => {
+    const worksheet = XLSX.utils.json_to_sheet(data);
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, "Mappings");
+
+    const excelBuffer = XLSX.write(workbook, {
+      bookType: "xlsx",
+      type: "array",
+    });
+    const file = new Blob([excelBuffer], { type: "application/octet-stream" });
+    saveAs(file, "ApplicabilityDashboard.xlsx");
   };
 
   return (
@@ -74,11 +88,10 @@ const Dashboard = () => {
 
         <tbody>
           {data.map((mapping) => {
-            const statusStyle =
-              STATUS_COLOR[mapping.status] || {
-                background: "#e2e3e5",
-                color: "#383d41",
-              };
+            const statusStyle = STATUS_COLOR[mapping.status] || {
+              background: "#e2e3e5",
+              color: "#383d41",
+            };
 
             const isEditing = editingId === mapping.id;
 
@@ -90,7 +103,10 @@ const Dashboard = () => {
                       type="text"
                       value={editForm.vehicleName}
                       onChange={(e) =>
-                        setEditForm({ ...editForm, vehicleName: e.target.value })
+                        setEditForm({
+                          ...editForm,
+                          vehicleName: e.target.value,
+                        })
                       }
                     />
                   ) : (
@@ -104,7 +120,10 @@ const Dashboard = () => {
                       type="text"
                       value={editForm.featureName}
                       onChange={(e) =>
-                        setEditForm({ ...editForm, featureName: e.target.value })
+                        setEditForm({
+                          ...editForm,
+                          featureName: e.target.value,
+                        })
                       }
                     />
                   ) : (
@@ -191,6 +210,12 @@ const Dashboard = () => {
           })}
         </tbody>
       </table>
+      {/* Export button BELOW table */}
+      <div className="export-container">
+        <button className="export-btn" onClick={exportToExcel}>
+          Export to Excel
+        </button>
+      </div>
     </div>
   );
 };
